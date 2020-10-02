@@ -16,8 +16,8 @@ class DespositoPlayer {
         this.queue.songs.push(song)
     }
 
-    play(message, song, desposito) {
-        Play(message, song, desposito, 0.4)
+    play(message, song, desposito, vol) {
+        Play(message, song, desposito, vol)
     }
 
     stop(desposito) {

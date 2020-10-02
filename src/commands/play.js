@@ -41,7 +41,7 @@ module.exports = {
                 }, video)
       
                 desposito.players.set(message.guild.id, Player)
-                Player.play(message, Player.queue.songs[0], desposito)
+                Player.play(message, Player.queue.songs[0], desposito, 0.4)
             } else {
                 player.queue.songs.push(video)
                 message.channel.send("`" + video.title + "` por **" + video.authorName + "** adicionado a fila.")
