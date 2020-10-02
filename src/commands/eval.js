@@ -2,6 +2,7 @@ const { inspect } = require('util');
 module.exports = {
     aliase: "e ev",
     async runHelp(data, desposito) {
+        if(data.message.author.id !== "451920956768649226") return
         let v = -1
         if (data.message.mentions.users.first()) {
             data.message.arguments.forEach((value, index) => {
