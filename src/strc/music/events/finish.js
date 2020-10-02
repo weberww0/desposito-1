@@ -5,5 +5,6 @@ module.exports = (player, message, desposito) => {
     }
 
     player.queue.songs.shift()
+    console.log(player.queue.songs)
     player.play(message, player.queue.songs[0], desposito)
 }
