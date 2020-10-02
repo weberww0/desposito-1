@@ -5,9 +5,8 @@ module.exports = async function play(message, song, desposito) {
     const guild = message.guild
     const player =  desposito.players.get(guild.id)
 
-    if (!song) {
-        player.stop(desposito)
-    }
+    if (!song) return player.stop(desposito)
+
 
     let number = ["0", "00"]
     const timer = setInterval(() => {
