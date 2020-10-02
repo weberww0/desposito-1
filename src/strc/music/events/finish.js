@@ -4,7 +4,8 @@ module.exports = (player, message, desposito) => {
         return message.channel.send("<:aviso2:643592353264828416> Como ninguém estava conectado na chamada, eu finalizei a reprodução.")
     }
 
+    const nowVolume = player.dispatcher.dispatcher.volume
     player.queue.songs.shift()
     console.log(player.queue.songs)
-    player.play(message, player.queue.songs[0], desposito)
+    player.play(message, player.queue.songs[0], desposito, nowVolume)
 }

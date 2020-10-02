@@ -1,7 +1,7 @@
 const ytdl = require("ytdl-core")
 const DespositoEmbed = require("../../utils/discord/DespositoEmbed")
 
-module.exports = async function play(message, song, desposito) {
+module.exports = async function play(message, song, desposito, volume) {
     const guild = message.guild
     const player =  desposito.players.get(guild.id)
 
@@ -29,6 +29,7 @@ module.exports = async function play(message, song, desposito) {
         clearInterval(timer)
        })
 
+      dispatcher.setVolume(volume)
       player.dispatcher.run(dispatcher, player, message, desposito)
 
     const embed = new DespositoEmbed(message)

@@ -17,7 +17,7 @@ class DespositoPlayer {
     }
 
     play(message, song, desposito) {
-        Play(message, song, desposito)
+        Play(message, song, desposito, 0.4)
     }
 
     stop(desposito) {
