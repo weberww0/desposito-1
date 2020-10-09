@@ -11,6 +11,7 @@ module.exports = {
 
     async execute (message, player) {
         const song = player.queue.songs[0]
+        const time = song.timer[0].toString().padStart(2, "0") + ":" + song.timer[1].toString().padStart(2, "0")
 
         const embed = new MessageEmbed()
         .setAuthor(song.authorName)
@@ -19,7 +20,7 @@ module.exports = {
         .setURL(song.url)
         .setDescription(song.desc)
         .setImage(song.image)
-        .setFooter("Duração: 0" + song.timer.join(":") + "/" + song.videoDuration)
+        .setFooter("Duração: " + time + "/" + song.videoDuration)
 
         message.channel.send("Reproduzindo agora:", embed)
     }

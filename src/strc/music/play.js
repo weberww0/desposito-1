@@ -8,20 +8,16 @@ module.exports = async function play(message, song, desposito, volume) {
     if (!song) return player.stop(desposito)
 
 
-    let number = ["0", "00"]
+    const number = [0, 0]
     const timer = setInterval(() => {
-        if(parseInt(number[1]) < 9) {
-            number[1] = (parseInt(number[1]) + 1).toString()
-            number[1] = "0" + number[1]
-        } else {
-            number[1] = (parseInt(number[1]) + 1).toString()
-        }
-        if(parseInt(number[1]) === 60) {
-            number[0] = (parseInt(number[0]) + 1).toString()
-            number[1] = "00"
-        }
-          song.timer = number
-    }, 1000)
+      number[1]++
+      if(number[1] === 60) {
+          number[0]++
+          number[1] = 0
+      }
+
+      song.timer = number
+    }, 1000) 
 
       const dispatcher = await player.connection.play(ytdl(song.url, {filter: "audio"}))
       .on("finish", () => {

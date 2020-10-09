@@ -22,7 +22,7 @@ module.exports = {
         const video = await VideoSearch(query, message.author)
         console.log(video)
         if(video === "not results") return message.reply("não encontrei nenhum vídeo com esse título ou URL.")
-        request("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id="+ video.videoID +"&key=AIzaSyC5NWUTqGTdCNl7yPvoAWrOomhr0FdsO40", async (err, res, body) => {
+        request("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id="+ video.videoID +"&key=" + process.env.YOUTUBE_KEY, async (err, res, body) => {
             const time = JSON.parse(body).items[0].contentDetails.duration
             video.videoDuration = duration.format(time)
             if(parseInt(video.videoDuration.substring(video.videoDuration.length, video.videoDuration.length - 5).substring(0, 2)) > 10) return message.reply("o vídeo é muito grande.")
