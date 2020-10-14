@@ -15,7 +15,7 @@ module.exports = {
             })
         }
 
-        this.execute(desposito, data.message, data.message.arguments, data.message.arguments.join(" "))
+        this.execute(desposito, data, data.message.arguments.join(" "))
     },
 
     async execute (desposito, data, code) {
