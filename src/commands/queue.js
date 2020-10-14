@@ -9,7 +9,7 @@ module.exports = {
         this.execute(player, data.message)
     },
 
-    async execute (player, message, ) {     
+    async execute (player, message) {     
         let description = ""
         let number = 1
 
@@ -19,9 +19,7 @@ module.exports = {
         }
 
         const embed = new DespositoEmbed(message)
-        // .selectPreset("queue")
-        .setAuthor(message.guild.name, message.guild.iconURL())
-        .setColor("#00BFFF")
+        .selectPreset("queue")
         .setDescription(description)
 
         message.channel.send(embed)

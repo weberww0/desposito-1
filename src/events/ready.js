@@ -1,6 +1,4 @@
-const fs = require("fs")
-const speech = require('@google-cloud/speech');
 module.exports = async (desposito) => {
-    console.log("Estou pronto como " + desposito.user.tag + "!")
+    console.log("Estou online!")
     desposito.user.setStatus("idle")
 }
