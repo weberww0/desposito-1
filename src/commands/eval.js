@@ -12,7 +12,7 @@ module.exports = {
                 if(r.test(data.message.arguments[index])) {
                     v++
                 }
-                data.message.arguments[index] = data.message.arguments[index].replace(/<@!?(\d{16,18})>/g, "message.mentions.users.map(u => u)["+v+"]") 
+                data.message.arguments[index] = data.message.arguments[index].replace(/<@!?(\d{16,18})>/g, "data.message.mentions.users.map(u => u)["+v+"]") 
             })
         }
 
