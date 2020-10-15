@@ -4,7 +4,7 @@ const Dispatcher = require("./DespositoDispatcher")
 const Manager = require("./DespositoManager")
 
 class DespositoPlayer {
-    constructor(desposito, obj, song) {
+    constructor(desposito, obj) {
         this.desposito = desposito
         this.guild = obj.guild
 
@@ -19,7 +19,6 @@ class DespositoPlayer {
 
         this.queue = {}
         this.queue.songs = []
-        this.queue.songs.push(song)
 
         this.manager.timer = null
     }
@@ -58,6 +57,13 @@ class DespositoPlayer {
     stopTimer() {
         clearInterval(this.timer)
         this.manager.timer = null
+    }
+
+    async search(argument, user) {
+        const search = require("../../strc/music/search")
+        const result =  await search(argument, user)
+
+        return result
     }
 }
 

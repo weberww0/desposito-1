@@ -14,7 +14,7 @@ module.exports = {
 
     async execute (message, player, volume) {
         const vol = isNaN(volume) ? 20 : Math.floor(parseInt(volume))
-        if(vol < 1 || vol > 9) return message.reply("esse volume é inválido.")
+        if(vol < 1 && vol !== 20 || vol > 9 && vol !== 20) return message.reply("esse volume é inválido.")
 
         if(player.queue.songs[0].author.id !== message.author.id) return message.reply("o vídeo que está sendo reproduzido agora não foi requisitado por você, então você não pode alterar o volume.")
         player.dispatcher.dispatcher.setVolume(vol/10)
