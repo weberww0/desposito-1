@@ -23,7 +23,7 @@ module.exports = {
         const { inspect } = require('util')
         let are = true
 
-        if(/[\-\-hide]$/g.test(code)) {
+        if(/\-\-hide/g.test(code)) {
             code = code.replace(/\-\-hide/g, "")
             are = false
         }
