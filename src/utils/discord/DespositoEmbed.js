@@ -38,6 +38,13 @@ module.exports = class DespositoEmbed extends dc.MessageEmbed {
                 .setColor("#00BFFF")
                 return this
             break
+
+            case "skip":
+                this
+                .setColor("#32CD32")
+                .setDescription(options.members.map(m => m.user).join("\n"))
+                return this
+            break
         }
     }
 }

@@ -1,0 +1,4 @@
+desposito.music = MusicManager {
+    _players: { Map }
+    status: "PLAYER COUNT | TA FUNCIONANDO | MÉDIA DE MS JUNTANDO DE TODOS OS PLAYERS
+}

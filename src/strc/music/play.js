@@ -5,16 +5,13 @@ module.exports = async function play(player, song) {
     if (!song) return player.stop()
     player.startTimer()
 
+    console.log(player.manager)
     const dispatcher = await player.manager.connection.play(ytdl(song.url, {filter: "audio"}))
-    .on("finish", () => {
-        require("../music/events/finish")(player)
-    })
-
     dispatcher.setVolume(player.manager.volume)
-    player.dispatcher.run(dispatcher)
+    player.dispatcher.load(dispatcher)
 
     const embed = new DespositoEmbed()
     .selectPreset("music_play", {song: song})
 
-    player.manager._firstRequest.textChannel.send("<a:carregando:702932052160282644> Iniciando a reprodução do vídeo:", embed)
+    player.manager._firstRequest.textChannel.send("Iniciando a reprodução do vídeo:", embed)
   }

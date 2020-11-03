@@ -3,7 +3,7 @@ const DespositoEmbed = require("../utils/discord/DespositoEmbed")
 module.exports = {
     aliase: "fila",
     async runHelp(data, desposito) {
-        const player = desposito.players.get(data.message.guild.id)
+        const player = data.message.guild.player
         if(!player) return data.message.reply("não estou reproduzindo nenhum video.")
 
         this.execute(player, data.message)

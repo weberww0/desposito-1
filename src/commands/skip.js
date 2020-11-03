@@ -1,10 +1,10 @@
-const { MessageEmbed } = require("discord.js")
+const DespositoEmbed = require("../utils/discord/DespositoEmbed")
 
 module.exports = {
     aliase: "pular",
 
     async runHelp (data, desposito) {
-        const player = desposito.players.get(data.message.guild.id)
+        const player = data.message.guild.player
         if(!player) return data.message.reply("não estou reproduzindo nenhum video.")
 
         if (data.message.member.voice.channel != player.manager.voiceChannel) return data.message.reply("você não está conectado à chamada.")
@@ -37,11 +37,10 @@ module.exports = {
 
             if(r.count - 1 > Math.floor(totalmembers.size / 2)) {
                 collector.stop()
-                const tojumpembed = new MessageEmbed()
-                .setColor("#32CD32")
-                .setDescription(totalmembers.map(m => m.user).join("\n"))
-                message.channel.send("O video `" + player.queue.songs[0].title + "` foi pulado! Esses foram os membros que reagiram a favor de pular:", tojumpembed)
-                
+                const tojumpembed = new DespositoEmbed(message)
+                .selectPreset("skip", {members: totalmembers})
+
+                message.channel.send("O video `" + player.queue.songs[0].title + "` foi pulado! Esses foram os membros que reagiram a favor de pular:", tojumpembed)      
                 player.skip()
             }
         })

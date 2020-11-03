@@ -6,16 +6,9 @@ module.exports = async (message, desposito) => {
         message: message,
         prefix: prefix
     }
-    
-    data.command = message.content.trim().split(/ +/).slice(1)[0]
-
-    if(message.channel.name === "eval") {
-        message.arguments = message.content.trim().split(/ +/)
-        const evalfile = desposito.commands.get("eval")
-        evalfile.runHelp(data, desposito)
-    }
-    
+        
     if(["desposito", "despo", "dp"].includes(prefix)) {
+        data.command = message.content.trim().split(/ +/).slice(1)[0]
         message.arguments = message.content.trim().split(/ +/).slice(2)
         const archive = desposito.commands.get(data.command) || desposito.aliases.get(data.command)
         
