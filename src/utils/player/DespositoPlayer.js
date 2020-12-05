@@ -4,7 +4,7 @@ const Dispatcher = require("./DespositoDispatcher")
 const Manager = require("./DespositoManager")
 
 class DespositoPlayer {
-    constructor(desposito, message) {
+    constructor(desposito, message, conn) {
         this.dispatcher = new Dispatcher(this)
         this.manager = new Manager()
 
@@ -14,17 +14,14 @@ class DespositoPlayer {
         this.queue = {}
         this.queue.songs = []
         
-        message.member.voice.channel.join().then(conn => {
-            console.log(conn)
-            this.manager.connection = conn
-            this.manager.voiceChannel = message.member.voice.channel
-            this.manager._firstRequest.user = message.author
-            this.manager._firstRequest.textChannel = message.channel
-            this.manager.volume = 0.4
-            this.manager.timer = null
+        this.manager.connection = conn
+        this.manager.voiceChannel = message.member.voice.channel
+        this.manager._firstRequest.user = message.author
+        this.manager._firstRequest.textChannel = message.channel
+        this.manager.volume = 0.4
+        this.manager.timer = null
 
-            this.desposito.players.set(this.guild.id, this)
-        })
+        this.desposito.players.set(this.guild.id, this)
     }
 
     static find (dp, id) {
