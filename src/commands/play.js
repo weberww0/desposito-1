@@ -21,6 +21,7 @@ module.exports = {
         const video = await player.search(query, message)
         if(video.time === "max") return message.reply("O vídeo é demasiado grande.")
 
+        console.log(player)
         player.queue.songs.push(video)
         !Boolean(player.queue.songs[1]) ? player.play() : message.channel.send("`" + video.title + "` por **" + video.authorName + "** adicionado a fila.")
     }
