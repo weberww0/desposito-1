@@ -32,7 +32,7 @@ module.exports = {
         try {
             const evaled = await eval(code)
             result = inspect(evaled, { compact: true, depth: 0 });
-        } catch(error) {
+        } catch (error) {
             are = true
             result = error.toString()
         }

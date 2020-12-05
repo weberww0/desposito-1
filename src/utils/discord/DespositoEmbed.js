@@ -17,7 +17,7 @@ module.exports = class DespositoEmbed extends dc.MessageEmbed {
                 .setURL(options.song.url)
                 .setDescription(options.song.desc)
                 .setImage(options.song.image)
-                .setFooter("Duração: " + options.song.videoDuration)
+                .setFooter("Duração: " + options.song.time)
                 return this
             break
 

@@ -4,10 +4,9 @@ const axios = require("axios")
 module.exports = async function search(arg, message) {
     let video = await ytsearch(arg, {maxResults: 10, key: process.env.YOUTUBE_KEY})
     if(!video.results.length) return message.reply("não encontrei nenhum vídeo com esse título ou URL.")
-
     video = video.results.filter(i => i.kind === "youtube#video")[0]
 
-    const finalResult = axios.get("https://www.googleapis.com/youtube/v3/videos?id=" + video.id + "&key=" + process.env.YOUTUBE_KEY + "&part=snippet&part=contentDetails").then(data => {
+    const finalResult = await axios.get("https://www.googleapis.com/youtube/v3/videos?id=" + video.id + "&key=" + process.env.YOUTUBE_KEY + "&part=snippet&part=contentDetails").then(data => {
         const response = data.data.items[0]
 
         let description = response.snippet.description

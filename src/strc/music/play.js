@@ -5,7 +5,6 @@ module.exports = async function play(player, song) {
     if (!song) return player.stop()
     player.startTimer()
 
-    console.log(player.manager)
     const dispatcher = await player.manager.connection.play(ytdl(song.url, {filter: "audio"}))
     dispatcher.setVolume(player.manager.volume)
     player.dispatcher.load(dispatcher)

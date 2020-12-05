@@ -15,7 +15,7 @@ module.exports = {
 
         const embed = new DespositoEmbed(message)
         .selectPreset("music_np", {song: song})
-        .setFooter("Duração: " + time + "/" + song.videoDuration)
+        .setFooter("Duração: " + time + "/" + song.time)
 
         message.channel.send("Reproduzindo agora:", embed)
     }
