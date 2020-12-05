@@ -11,7 +11,7 @@ module.exports = {
         if(player && player.manager.voiceChannel && data.message.member.voice.channel !== player.manager.voiceChannel) return data.message.reply("você não está conectado na mesma chamada que eu.")
         if(!data.message.arguments[0]) return message.reply("insira a pesquisa ou o URL do vídeo no youtube.")
 
-        if(!player) player = new DespositoPlayer(desposito, data.message)
+        if(!player) player = await new DespositoPlayer(desposito, data.message)
 
         const query = data.message.arguments.join(" ")
         this.execute(data.message, query, player)

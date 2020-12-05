@@ -15,6 +15,7 @@ class DespositoPlayer {
         this.queue.songs = []
         
         message.member.voice.channel.join().then(conn => {
+            console.log(conn)
             this.manager.connection = conn
             this.manager.voiceChannel = message.member.voice.channel
             this.manager._firstRequest.user = message.author
