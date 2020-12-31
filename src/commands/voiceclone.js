@@ -17,12 +17,12 @@ module.exports = {
         const message = await msg.channel.send(vc1.name + " & " + vc2.name + " conectados.\n")
         
         connection1.on('speaking', (user, speaking) => {
+console.log("^^^^^^")
             const receiver = connection1.receiver.createStream(user.id)
             connection2.play(receiver, { type: 'opus' })
 
-            message.edit(message.content + "\n" + user.tag + " está falando.")
+            console.log(message.content + "\n" + user.tag + " está falando.")
             receiver.on('end', () => {
-                message.edit(message.content.replace("\n" + user.tag + " está falando.", ""))
             })
         })
     }
