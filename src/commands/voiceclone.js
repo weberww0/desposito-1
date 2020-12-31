@@ -18,7 +18,7 @@ module.exports = {
         
         connection1.on('speaking', (user, speaking) => {
 console.log("^^^^^^")
-            const receiver = connection1.receiver.createStream(user.id)
+            const receiver = await connection1.receiver.createStream(user.id)
             connection2.play(receiver, { type: 'opus' })
 
             console.log(message.content + "\n" + user.tag + " está falando.")
