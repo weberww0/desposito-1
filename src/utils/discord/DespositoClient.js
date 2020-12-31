@@ -5,9 +5,8 @@ module.exports = class DespositoClient extends Client {
 
 		super.login(token)
 		console.log("DespositoClient", "Conectado a aplicação\n")
-		this.players = new Map()
 		this.commands = new Map()
-        this.aliases = new Map()
+                this.aliases = new Map()
 	}
 
 	get ms () {
