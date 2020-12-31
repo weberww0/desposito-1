@@ -22,7 +22,7 @@ module.exports = {
 
             message.edit(message.content + "\n" + user.tag + " está falando.")
             receiver.on('end', () => {
-                message.edit(message.replace("\n" + user.tag + " está falando.", ""))
+                message.edit(message.content.replace("\n" + user.tag + " está falando.", ""))
             })
         })
     }
