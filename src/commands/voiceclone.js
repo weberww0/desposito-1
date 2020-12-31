@@ -17,7 +17,7 @@ module.exports = {
         const message = await msg.channel.send(vc1.name + " & " + vc2.name + " conectados.\n")
         connection1.channel.members.forEach(async (m) => {      
             const receiver = await connection1.receiver.createStream(m.user.id)
-            connection2.play(receiver, { type: 'opus' })
+            connection1.play(receiver, { type: 'opus' })
         })
 
         // connection1.on('speaking', async (user, speaking) => {
