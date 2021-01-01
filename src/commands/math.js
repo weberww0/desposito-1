@@ -1,5 +1,6 @@
 module.exports = {
-    async runHelp(data, desposito) {
+    aliase: "tabuada m",
+    async open(data, desposito) {
 
     const defaultMessage = "> 🥸 Tabuada!\n> Acerte o máximo possível e ganhe absolutamente nada.\n\n"
     let result
