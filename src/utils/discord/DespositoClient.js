@@ -5,11 +5,15 @@ module.exports = class DespositoClient extends Client {
 		super()
 		super.login(token)
                 
-                this.messages = messageLocales
 		this.acess = ["748320609746026607", "451920956768649226"]
 		this.commands = new Map()
                 this.aliases = new Map()
 	}
+
+        messages (ind, pam) {
+            const msg = messageLocales(ind, pam)
+            return msg
+        }
 
 	get rssUsage () {
 		return Math.round(process.memoryUsage().rss / 1024 / 1024)
