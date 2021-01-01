@@ -35,6 +35,6 @@ module.exports = {
     }
 
     result = regenerate()
-    const message = await data.message.channel.send(data.messages("math_start", maths))
+    const message = await data.message.channel.send(data.messages("math_first", maths))
     }
 }
