@@ -12,6 +12,7 @@ module.exports = class DespositoClient extends Client {
 
         messages (ind, pam) {
             const msg = messageLocales(ind, pam)
+console.log(msg)
             return msg
         }
 
