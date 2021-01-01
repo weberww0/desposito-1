@@ -2,15 +2,11 @@ const { Client } = require("discord.js")
 module.exports = class DespositoClient extends Client {
 	constructor(token) {
 		super()
-
 		super.login(token)
-		console.log("DespositoClient", "Conectado a aplicação\n")
+
+		this.acess = ["748320609746026607", "451920956768649226"]
 		this.commands = new Map()
                 this.aliases = new Map()
-	}
-
-	get ms () {
-		return super.ws.ping
 	}
 
 	get rssUsage () {
