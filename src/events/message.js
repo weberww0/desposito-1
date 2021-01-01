@@ -13,7 +13,8 @@ module.exports = async (message, desposito) => {
         const archive = desposito.commands.get(data.command) || desposito.aliases.get(data.command)
         
         if(archive) { 
-            archive.runHelp(data, desposito)
+            if(archive.requireAcessPass && !desposito.acess.includes(message.author.id)) return
+            archive.open(data, desposito)
             console.log('log', `${message.author.tag} (${message.author.id}) executou o comando: ${data.command}`) 
         }
     }
