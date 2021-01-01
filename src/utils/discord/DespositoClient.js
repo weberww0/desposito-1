@@ -5,7 +5,7 @@ module.exports = class DespositoClient extends Client {
 		super()
 		super.login(token)
                 
-                this.messages = await messageLocales
+                this.messages = messageLocales
 		this.acess = ["748320609746026607", "451920956768649226"]
 		this.commands = new Map()
                 this.aliases = new Map()
