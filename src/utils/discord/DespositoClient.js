@@ -1,4 +1,4 @@
-const { Client } = require("discord.js")
+8const { Client } = require("discord.js")
 const messageLocales = require("../../../messages")
 module.exports = class DespositoClient extends Client {
 	constructor(token) {
