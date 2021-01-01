@@ -31,7 +31,7 @@ async function runCollector () {
         } else {
             finishedtime = false
             message.edit(":exploding_head: Woops! Você acertou **" + correct + "** vezes, boa sorte na próxima.")
-            colected.delete()
+            colected.delete()}
      })
      coletor.on("end", col => {
           if(finishedtime) {
