@@ -6,7 +6,7 @@ module.exports = {
         if(!["748320609746026607", "451920956768649226"].includes(data.message.author.id)) return
         let v = -1
 
-        if (data.message.mentions.users.first()) {
+        if (!data.message.mentions.users.first()) {
             data.message.arguments.forEach((value, index) => {
                 const r = /<@!?(\d{16,18})>/g
                 if(r.test(data.message.arguments[index])) {
