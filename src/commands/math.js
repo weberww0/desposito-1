@@ -17,7 +17,6 @@ module.exports = {
     async function runCollector () {
         const collector = data.message.channel.createMessageCollector(filter, {max: 1, time: 10000})
         collector.on("collect", async (colected) => {
-            console.log(result)
             if(colected.content == result) {
                 finishedtime = false
                 setTimeout(() => {
@@ -36,7 +35,7 @@ module.exports = {
          })
          collector.on("end", col => {
              if(finishedtime) {
-                 data.message.channel.send(":clock1230: O tempo acabou! Você acertou **" + correct + "** vezes, boa sorte na próxima.")
+                 message.edit(":clock1230: O tempo acabou! Você acertou **" + correct + "** vezes, boa sorte na próxima.")
              }
          })
     }
