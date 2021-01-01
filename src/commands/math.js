@@ -34,7 +34,7 @@ module.exports = {
          })
     }
 
-    result = regenerate()
+    result = await regenerate()
     const message = await data.message.channel.send(defaultMessage + "Quanto é: **" + maths.one + "x" + maths.two + "**?")
     }
 }
