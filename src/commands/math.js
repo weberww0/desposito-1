@@ -21,21 +21,20 @@ module.exports = {
                 correct += 1
                 regenerate()
                 colected.delete()
-                message.edit(desposito.messages("math_congrats", maths))
+                message.edit(defaultMessage + "Parabéns você acertou! Mas quanto é **" + maths.one + "x" + maths.two + "**?")
             } else {
-                message.edit(desposito.messages("math_fail", correct))
+                message.edit(":exploding_head: Woops! Você acertou **" + correct + "** vezes, boa sorte na próxima.")
                 colected.delete()
             }
          })
          collector.on("end", (col, reason) => {
              if(reason === "time") {
-                 message.edit(desposito.messages("math_timeout", correct))
+                 message.edit(":clock1230: O tempo acabou! Você acertou **" + correct + "** vezes, boa sorte na próxima.")
              }
          })
     }
 
     result = regenerate()
-console.log(desposito.messages("math_first", maths))
-    const message = await data.message.channel.send(await desposito.messages("math.first", maths))
+    const message = await data.message.channel.send(defaultMessage + "Quanto é: **" + maths.one + "x" + maths.two + "**?")
     }
 }
