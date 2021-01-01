@@ -6,7 +6,7 @@ module.exports = {
     let correct = 0
     let maths
 
-    async function regenerate() {
+    function regenerate() {
         maths = {"one": Math.floor(Math.random() * (10-2) + 2), "two": Math.floor(Math.random() * (10-2) + 2)}
 
         runCollector()
@@ -19,7 +19,7 @@ module.exports = {
         collector.on("collect", async (colected) => {
             if(colected.content == result) {
                 correct += 1
-                result = await regenerate()
+                result = regenerate()
                 colected.delete()
                 message.edit(defaultMessage + "Parabéns você acertou! Mas quanto é **" + maths.one + "x" + maths.two + "**?")
             } else {
@@ -34,7 +34,7 @@ module.exports = {
          })
     }
 
-    result = await regenerate()
+    result = regenerate()
     const message = await data.message.channel.send(defaultMessage + "Quanto é: **" + maths.one + "x" + maths.two + "**?")
     }
 }
