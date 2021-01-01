@@ -4,28 +4,21 @@ module.exports = {
 
     async runHelp(data, desposito)  {
         if(!["748320609746026607", "451920956768649226"].includes(data.message.author.id)) return
-        let v = -1
+        let content = data.message.content
 
-        if (!data.message.mentions.users.first()) {
-            data.message.arguments.forEach((value, index) => {
-                const r = /<@!?(\d{16,18})>/g
-                if(r.test(data.message.arguments[index])) {
-                    v++
-                }
-                data.message.arguments[index] = data.message.arguments[index].replace(/<@!?(\d{16,18})>/g, "data.message.mentions.users.map(u => u)["+v+"]") 
-            })
-        }
+        const reg = /<@!?(\d{16,18})>/g
+        content = content.replace(reg, 'desposito.users.cache.get("$1")')
 
-        this.execute(desposito, data, data.message.arguments.join(" "))
+        this.execute(desposito, data, content)
     },
 
     async execute (desposito, data, code)  {
         const { inspect } = require('util')
-        let are = true
+        let sendOutput = true
 
         if(/\-\-hide/g.test(code)) {
             code = code.replace(/\-\-hide/g, "")
-            are = false
+            sendOutput = false
         }
 
         let result
@@ -33,10 +26,10 @@ module.exports = {
             const evaled = await eval(code)
             result = inspect(evaled, { compact: true, depth: 0 });
         } catch (error) {
-            are = true
+            sendOutput = true
             result = error.toString()
         }
         
-        if(are) { data.message.channel.send(result, {code: 'js'}) }
+        if(sendOutput) { data.message.channel.send(result, {code: 'js'}) }
     }
 }
