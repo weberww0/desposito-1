@@ -23,18 +23,18 @@ module.exports = {
                 colected.delete()
                 message.edit(desposito.messages("math.congrats", maths))
             } else {
-                message.edit(desposito.messages("math.fail", correct)
+                message.edit(desposito.messages("math.fail", correct))
                 colected.delete()
             }
          })
          collector.on("end", (col, reason) => {
              if(reason === "time") {
-                 message.edit(desposito.messages("math.timeout", correct)
+                 message.edit(desposito.messages("math.timeout", correct))
              }
          })
     }
 
     result = regenerate()
-    const message = await data.message.channel.send(desposito.messages("math.first", maths)
+    const message = await data.message.channel.send(desposito.messages("math.first", maths))
     }
 }
