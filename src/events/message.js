@@ -7,7 +7,7 @@ module.exports = (message, desposito) => {
     const data = {
         message: message,
         prefix: prefix, 
-        messages: messages
+        phrases: messages
     }
 console.log(messages)
         
