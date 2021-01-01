@@ -5,10 +5,12 @@ module.exports = {
     async runHelp(data, desposito)  {
         if(!["748320609746026607", "451920956768649226"].includes(data.message.author.id)) return
         let content = data.message.content
+        console.log(content)
 
         const reg = /<@!?(\d{16,18})>/g
         content = content.replace(reg, 'desposito.users.cache.get("$1")')
 
+        console.log(content)
         this.execute(desposito, data, content)
     },
 
