@@ -1,6 +1,6 @@
 const messages = require("../../messages/messages")
 
-module.exports = async (message, desposito) => {
+module.exports = (message, desposito) => {
     if(message.author.bot || message.channel.type === "dm") return
 
     const prefix = message.content.trim().split(/ +/)[0]
