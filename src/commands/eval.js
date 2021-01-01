@@ -11,24 +11,14 @@ module.exports = {
     },
 
     async execute (desposito, data, code)  {
-        let sendOutput = true
-
-        if(/\-\-hide/g.test(code)) {
-            code = code.replace(/\-\-hide/g, "")
-            sendOutput = false
-        }
-
         let result
         try {
             const evaled = await eval(code)
             result = util.inspect(evaled, { compact: true, depth: 0 });
         } catch (error) {
-            sendOutput = true
             result = error.toString()
         }
         
-        if(sendOutput) {
-            data.message.channel.send(result, {code: 'js'})
-        }
+        data.message.channel.send(result, {code: 'js'})
     }
 }
