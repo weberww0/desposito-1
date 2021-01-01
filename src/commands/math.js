@@ -36,6 +36,6 @@ module.exports = {
 
     result = regenerate()
 console.log(desposito.messages("math_first", maths))
-    const message = await data.message.channel.send(desposito.messages("math.first", maths))
+    const message = await data.message.channel.send(await desposito.messages("math.first", maths))
     }
 }
