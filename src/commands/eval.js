@@ -11,7 +11,7 @@ module.exports = {
         content = content.replace(reg, 'desposito.users.cache.get("$1")')
 
         console.log(content)
-        this.execute(desposito, data, content)
+        this.execute(desposito, data, content.split(" ").slice(2).join(" "))
     },
 
     async execute (desposito, data, code)  {
