@@ -1,5 +1,5 @@
 module.exports = {
-    runHelp(data, desposito) {
+    open(data, desposito) {
 
 const filter = m => !m.author.bot
 const coletor = data.message.channel.createMessageCollector(filter, {time: 60000})
