@@ -1,5 +1,5 @@
 module.exports = {
-    runHelp(data, desposito) {
+    await runHelp(data, desposito) {
 
     const defaultMessage = "> 🥸 Tabuada!\n> Acerte o máximo possível e ganhe absolutamente nada.\n\n"
     let result
