@@ -1,6 +1,5 @@
-const messages = {"math_timeout": `Acabou o tempo! ${reference.one} and ${reference.two}`}
-
 module.exports = (ind, reference) => {
+    const messages = {"math_timeout": `Acabou o tempo! ${reference.one} and ${reference.two}`}
     return messages[ind]
 }
 
