@@ -1,5 +1,5 @@
 const fs = require("fs")
-module.exports = async function event_loader(desposito) {
+module.exports = (desposito) => {
     fs.readdirSync('src/events').forEach(f => {
         const event = require(`../../events/${f}`)
         desposito.on(f.replace(/.js/g, ""), (...args) => event(...args, desposito))
