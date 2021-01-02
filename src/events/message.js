@@ -1,13 +1,10 @@
-const messages = require("../../phrases/messages")
-
 module.exports = (message, desposito) => {
     if(message.author.bot || message.channel.type === "dm") return
 
     const prefix = message.content.trim().split(/ +/)[0]
     const data = {
         message: message,
-        prefix: prefix, 
-        phrases: messages
+        prefix: prefix
     }
         
     if(["desposito", "despo", "dp"].includes(prefix)) {
