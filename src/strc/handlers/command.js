@@ -1,5 +1,5 @@
 const fs = require("fs")
-module.exports = async function command_loader(desposito) {
+module.exports = (desposito) => {
     fs.readdirSync('src/commands').forEach(f => {
         const command = require(`../../commands/${f}`)
     
