@@ -12,6 +12,11 @@ class PROTO {
             const msg = phrases(ind, ref)
             return this.edit(msg)
         }
+
+        Discord.Message.prototype.helply = function send(ind, ...args) {
+            return this.channel.send("> " + this.author.username + ", te apresento o comando **" + ind.toUpperCase() + "**!\n> " + phrases("commands." + ind + ".description") + "\n🤔 Não sabe como usar? Use-o da seguinte maneira: `" + phrases("commands." + ind + ".usage") + "`")
+        }
+  
     }
 }
 
