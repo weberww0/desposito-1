@@ -11,11 +11,12 @@ module.exports = (message, desposito) => {
         
     if(["desposito", "despo", "dp"].includes(prefix)) {
         message.arguments = message.content.trim().split(/ +/).slice(2)
-        const archive = desposito.commands.get(data.command) || desposito.aliases.get(data.command)
+        const archive = desposito.resolveCommand(data.command)
 
         if(archive) { 
             if(CountdownManager.verify(message, archive.countdown ? archive.countdown : 0)) return
             if(archive.requireAcessPass && !desposito.acess.includes(message.author.id)) return
+            if(data.message.arguments[0] === "🤔") return data.message.helply(archive.name)
             if(archive.clientPermissions && !message.guild.me.permissions.has(archive.clientPermissions)) return message.desply("perm.missing", archive.clientPermissions)
             archive.open(data, desposito)
             console.log('log', `${message.author.tag} (${message.author.id}) executou o comando: ${data.command}`) 
